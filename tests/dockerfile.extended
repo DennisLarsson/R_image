@@ -1,0 +1,4 @@
+FROM r-image AS r-image-test
+COPY tests/test_script.R /test_script.R
+
+CMD ["Rscript test_script.R"]
