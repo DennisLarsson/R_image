@@ -15,7 +15,7 @@ jobs:
       uses: docker/setup-buildx-action@v3.3.0
 
     - name: Cache test Docker layers
-      uses: actions/cache@v4.0.2
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-test.cache
         key: ${{ runner.os }}-test-buildx-${{ hashFiles('Dockerfile', 'tests/Dockerfile.extended') }}
@@ -41,7 +41,7 @@ jobs:
 
     - name: Save Docker cache
       if: always()
-      uses: actions/cache@v4.0.2
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-test.cache
         key: ${{ runner.os }}-test-buildx-${{ hashFiles('Dockerfile', 'tests/Dockerfile.extended') }}
@@ -59,7 +59,7 @@ jobs:
       uses: docker/setup-buildx-action@v3.3.0
 
     - name: Cache Docker layers
-      uses: actions/cache@v4.0.2
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile') }}
