@@ -47,7 +47,7 @@ jobs:
         key: ${{ runner.os }}-test-buildx-${{ hashFiles('Dockerfile', 'tests/Dockerfile.extended') }}
 
     - name: Run test Docker container
-      run: docker run r-image-test Rscript ./test_script.R
+      run: docker run r-image-test Rscript test_script.R
 
   build:
     needs: test
