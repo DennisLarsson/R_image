@@ -3,4 +3,4 @@ COPY tests/test_script.R /
 
 RUN chmod +x test_script.R
 
-CMD ["Rscript test_script.R"]
+CMD ["Rscript ./test_script.R"]
