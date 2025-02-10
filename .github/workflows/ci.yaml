@@ -83,15 +83,15 @@ jobs:
 
     - name: Print env variables
       run: |
-        echo "REPO: ${{ env.REPO }}"
-        echo "BRANCH: ${{ env.BRANCH }}"
-        echo "SHA: ${{ env.SHA }}"
+        echo "REPO: ${{ steps.repo-name-lowercase.outputs.REPO }}"
+        echo "BRANCH: ${{ steps.get-branch.outputs.BRANCH }}"
+        echo "SHA: ${{ steps.short-sha.outputs.SHA }}"
   
     - name: Build and push Docker image
       uses: docker/build-push-action@v5.3.0
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ env.REPO }}:${{ env.BRANCH }}-${{ env.SHA }}
+        tags: ghcr.io/${{ steps.repo-name-lowercase.outputs.REPO }}:${{ steps.get-branch.outputs.BRANCH }}-${{ steps.short-sha.outputs.SHA }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
