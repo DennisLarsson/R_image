@@ -4,5 +4,4 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get install -y r-base
 
-RUN mkdir /output/
 RUN Rscript -e "install.packages('adegenet')"
