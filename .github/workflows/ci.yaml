@@ -81,6 +81,12 @@ jobs:
       id: get-branch
       run: echo "BRANCH=$(echo ${GITHUB_REF#ref/heads/} | tr '/' '-')"  >> $GITHUB_OUTPUT
 
+    - name: Print env variables
+      run: |
+        echo "REPO: ${{ env.REPO }}"
+        echo "BRANCH: ${{ env.BRANCH }}"
+        echo "SHA: ${{ env.SHA }}"
+  
     - name: Build and push Docker image
       uses: docker/build-push-action@v5.3.0
       with:
