@@ -79,7 +79,7 @@ jobs:
 
     - name: Get branch name
       id: get-branch
-      run: echo "BRANCH=$(echo ${GITHUB_REF#ref/heads/} | tr '/' '-')"  >> $GITHUB_OUTPUT
+      run: echo "BRANCH=$(echo ${GITHUB_REF#refs/heads/} | tr '/' '-')"  >> $GITHUB_OUTPUT
 
     - name: Print env variables
       run: |
